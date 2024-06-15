@@ -27,3 +27,5 @@
 # Ignore system files
 .DS_Store
 Thumbs.db
+# Ignore virtual environment
+venv/
