@@ -3,41 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eco Educational Site</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <h1>Welcome to the Eco Educational Site</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Courses</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <title>EcoMind</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ api_key }}&libraries=places"></script>
+    <script>
+        function initMap() {
+            fetch('/find-disposal')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(data.error);
+                        return;
+                    }
+                    
+                    console.log("Disposal data:", data); // Log data for debugging
+                    
+                    const map = new google.maps.Map(document.getElementById('map'), {
+                        center: {lat: data.current_location[0], lng: data.current_location[1]},
+                        zoom: 12
+                    });
 
+                    const currentLocationMarker = new google.maps.Marker({
+                        position: {lat: data.current_location[0], lng: data.current_location[1]},
+                        map: map,
+                        title: "Current Location"
+                    });
+
+                    const disposalLocationMarker = new google.maps.Marker({
+                        position: {lat: data.closest_disposal.location[0], lng: data.closest_disposal.location[1]},
+                        map: map,
+                        title: data.closest_disposal.name
+                    });
+
+                    const directionsService = new google.maps.DirectionsService();
+                    const directionsRenderer = new google.maps.DirectionsRenderer();
+                    directionsRenderer.setMap(map);
+
+                    const request = {
+                        origin: currentLocationMarker.getPosition(),
+                        destination: disposalLocationMarker.getPosition(),
+                        travelMode: 'DRIVING'
+                    };
+
+                    directionsService.route(request, function(result, status) {
+                        if (status == 'OK') {
+                            directionsRenderer.setDirections(result);
+                        } else {
+                            alert('Directions request failed due to ' + status);
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching disposal data:', error);
+                    alert('Error fetching disposal data: ' + error.message);
+                });
+        }
+    </script>
+</head>
+
+<body onload="initMap()">
+    <header>
+        <div class="main-content">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="static/logo.png" alt="EcoMind Logo">
+                    <span>EcoMind</span>
+                </div>
+                <div class="auth-links">
+                    <a href="#">Login</a> | <a href="#">Register</a>
+                </div>
+            </div>
+            <div class="body">
+                <p>Body Content</p>
+            </div>
+        </div>
+    </header>
     <main>
         <section>
-            <h2>About Us</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl id efficitur tincidunt, nunc nunc ultrices tellus, id lacinia nisl nunc id nunc.</p>
-        </section>
-
-        <section>
-            <h2>Our Courses</h2>
-            <ul>
-                <li>Course 1</li>
-                <li>Course 2</li>
-                <li>Course 3</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Contact Us</h2>
-            <p>Email: info@example.com</p>
-            <p>Phone: 123-456-7890</p>
+            <div class="navbar">
+                <h2>Find Your Nearest Electrical Waste Disposal Location</h2>
+            </div>
+            <div id="map" style="height: 500px; width: 100%;"></div>
         </section>
     </main>
 

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disposal Location</title>
+</head>
+<body>
+    <h1>Closest Disposal Location</h1>
+    <p>Name: {{ closest_disposal.name }}</p>
+    <p>Distance: {{ distance }}</p>
+    <p>Duration: {{ duration }}</p>
+    <h2>Directions</h2>
+    <ol>
+        {% for step in steps %}
+        <li>{{ step['html_instructions'] | safe }}</li>
+        {% endfor %}
+    </ol>
+</body>
+</html>
