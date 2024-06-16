@@ -23,6 +23,7 @@
 *.tmp
 *.bak
 *.swp
+.env
 
 # Ignore system files
 .DS_Store
