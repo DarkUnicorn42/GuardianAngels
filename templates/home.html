@@ -1,30 +1,70 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Vape Shop Locator</title>
+    <title>Recycle your vape</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
     <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/static/css/style.css?v=1.1">
+    </link>
     <link rel="stylesheet" href="/static/css/map.css?v=1.1">
+    <script src="/static/js/autocomplete.js?v=1.1"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="/static/js/config.js?v=1.1"></script>
-    <script src="/static/js/location.js?v=1.1"></script>
-    <script src="/static/js/map.js?v=1.1"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ api_key }}&libraries=places&callback=initMap"></script>
-    <style>
-        #map {
-            height: 100vh; /* 100% of the viewport height */
-            width: 100%; /* 100% of the viewport width */
-        }
-    </style>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key={{ api_key }}&libraries=places&callback=initMap"></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key={{ api_key }}&libraries=places&callback=initAutocomplete"></script>
 </head>
+
 <body>
-    <div id="map"></div>
-    <script src="/static/js/location.js?v=1.1"></script>
-    <script src="/static/js/map.js?v=1.1"></script>
-    <script>
-        function initMap() {
-            getLocation(); // This will call getLocation from location.js
-        }
-    </script>
+    <header>
+        <img src="/static/images/re-vape.png" alt="Re-Vape Logo" id="logo">
+    </header>
+    <main>
+        <div class="search-wrapper">
+            <section class="search-box">
+                <input type="text" id="search-input" placeholder="Enter address or postcode">
+                <button id="search-button">Search</button>
+            </section>
+        </div>
+        <div class="intro-section">
+            <h2>Why you should recycle?</h2>
+        </div>
+        <div class="articles-container">
+            <section class="article-box">
+                <h2>Why recycle vapes?</h2>
+                <div class="article-content">
+                    <iframe
+                        src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid02NcT8Qq9LSE1AU9o6CrxZdAX2HnyhapHyVXSaNs4XPYykdJF4fhnonWxGSzsNbgK2l%26id%3D61561182715319&show_text=true&width=500"
+                        width="300" height="350" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+                        allowfullscreen="true"
+                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                </div>
+            </section>
+            <section class="article-box">
+                <h2>Another Article</h2>
+                <div class="article-content">
+                    <iframe
+                        src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0QGZFKAa4zTnUfm9EQ3oCp14Dt7Q1GJcoMz8Yb4MoHsh8124uax2iDC38kgvk8NjJl%26id%3D61561182715319&show_text=true&width=500"
+                        width="300" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+                        allowfullscreen="true"
+                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                </div>
+            </section>
+        </div>
+        <section class="map">
+            <div id="map"></div>
+        </section>
+        <script src="/static/js/location.js?v=1.1"></script>
+        <script src="/static/js/map.js?v=1.1"></script>
+        <script>
+            function initMap() {
+                getLocation();
+            }
+        </script>
+    </main>
+    <footer>
+        <p>Let's make a positive impact in Warsaw together!</p>
+    </footer>
 </body>
 </html>

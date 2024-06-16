@@ -1,0 +1,152 @@
+body, h1, p, button {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+header {
+    background-color: #E0FFFF;
+    color: black;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+.search-wrapper {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.search-box {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+}
+
+input[type="text"], button {
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+}
+
+input[type="text"] {
+    flex-grow: 1;
+    border-radius: 4px 0 0 4px;
+}
+
+button {
+    background-color: #66CDAA;
+    color: white;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #5ab999;
+}
+
+@media (max-width: 768px) {
+    .search-wrapper {
+        width: 100%;
+        position: static;
+        transform: none;
+    }
+}
+
+.intro-section {
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    text-align: center;
+}
+
+.articles-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.article-box {
+    background-color: #fff;
+    border-radius: 8px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    width: 45%;
+    box-sizing: border-box;
+}
+
+.article-box h2 {
+    color: #66CDAA;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.article-box p {
+    color: black;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.article-content p {
+    padding: 10px 0;
+    text-align: center;
+}
+
+.image-section {
+    background-color: #FFFFFF;
+    padding: 20px;
+}
+
+footer {
+    background-color: #E0FFFF;
+    color: black;
+    padding: 10px;
+    text-align: center;
+}
+
+.carousel {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-item {
+    flex: 0 0 100%;
+    transition: left 0.5s ease-in-out;
+}
+
+/* Adjust responsive settings */
+@media (max-width: 768px) {
+    header, main, footer, input[type="text"], button {
+        padding: 10px;
+    }
+    input[type="text"], button {
+        width: 90%;
+    }
+}
+#map {
+    height: 100vh; /* Or set to a specific value like 500px */
+    width: 100%; /* Adjust as necessary */
+    overflow: visible; /* Ensure the map is not cut off */
+}
+
+/* Ensure the map is fully visible on smaller screens */
+@media (max-width: 768px) {
+    #map {
+        height: 50vh; /* Adjust based on your design needs */
+    }
+}
