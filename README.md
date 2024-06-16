@@ -8,6 +8,16 @@ html
 css
 js
 ```
-### re-vape:
+## Our project is:
 
 <img src="https://github.com/DarkUnicorn42/GuardianAngels/blob/main/static/images/re-vape.png">
+
+# We address the problem of unrecycled e-cigarettes by informing, educating and incentivizing the correct disposal.
+</br>Hackaton prequesites:
+```
+Track: Social Responsibility
+
+﻿Challenge Statement:﻿﻿ [hackwarsaw] Develop a solution that encourages citizens to participate in Warsaw's environmental sustainability efforts.
+```
+﻿
+﻿﻿﻿Demo link: https://youtu.be/lRhiolrJxW4
