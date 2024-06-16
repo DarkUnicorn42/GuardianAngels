@@ -2,8 +2,14 @@
 <html>
 <head>
     <title>Vape Shop Locator</title>
-    <link rel="icon" href="/static/images/favicon.ico.png" type="image/x-icon">
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARYErVUcv2rpoAebIb9c1cNJXQqpp-vC4&libraries=places&callback=initMap"></script>
+    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/static/css/style.css?v=1.1">
+    <link rel="stylesheet" href="/static/css/map.css?v=1.1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/static/js/config.js?v=1.1"></script>
+    <script src="/static/js/location.js?v=1.1"></script>
+    <script src="/static/js/map.js?v=1.1"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ api_key }}&libraries=places&callback=initMap"></script>
     <style>
         #map {
             height: 100vh; /* 100% of the viewport height */
